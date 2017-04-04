@@ -27,3 +27,17 @@ db %>%
              WHERE title = 'Unforgiven'
              AND production_year = 1992;")
 ```
+
+```{r}
+table <- db %>%
+  dbGetQuery("SELECT * FROM title
+             WHERE kind_id = 1;")
+
+```
+
+```{r}
+table %>%
+  group_by(production_year) %>%
+  summarise(num_films = sum(n()))
+```
+
