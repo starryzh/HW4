@@ -81,7 +81,7 @@ problem2 <- table4 %>%
 ```
 
 ```{r}
-table5
+problem2
 ```
 
 ## Problem 3
