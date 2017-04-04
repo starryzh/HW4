@@ -14,17 +14,17 @@ db <- dbConnect_scidb(dbname = "imdb")
 class(db)
 ```
 
-```{r}
+```{r, results='hide'}
 db %>%
   dbGetQuery("SELECT * FROM kind_type;")
 ```
 
-```{r}
+```{r, results='hide'}
 db %>%
   dbGetQuery("SELECT * FROM info_type;")
 ```
 
-```{r}
+```{r, results='hide'}
 db %>%
   dbGetQuery("SELECT * FROM movie_info
              WHERE info_type_id = 3
@@ -32,16 +32,16 @@ db %>%
 ```
 
 
-## problem 1
+## Problem 1
 Compute the number of all films for each production_year. Your result should be a data.frame with two columns: production_year and num_films. something
-```{r}
+```{r, results='hide'}
 db %>%
   dbGetQuery("SELECT * FROM title
              WHERE title = 'Unforgiven'
              AND production_year = 1992;")
 ```
 
-```{r}
+```{r, results='hide'}
 table <- db %>%
   dbGetQuery("SELECT * FROM title
              WHERE kind_id = 1;")
@@ -54,21 +54,26 @@ problem1 <-table %>%
   summarise(num_films = sum(n()))
 ```
 
+```{r}
+problem1
+```
+
+
 ## Problem 2
 Compute the number of Westerns for each production_year. Your result should be a  data.frame with two columns: production_year and num_westerns.
-```{r}
+```{r, results='hide'}
 table2 <- db %>%
   dbGetQuery("SELECT * FROM movie_info
              WHERE info_type_id = 3
              AND info = 'Western';")
 ```
 
-```{r}
+```{r, results='hide'}
 table3 <- db %>%
   dbGetQuery("SELECT * FROM title;")
 ```
 
-```{r}
+```{r, results='hide'}
 table4 <- table2 %>%
   left_join(table3, by = c("movie_id" = "id"))
 head(table4)
