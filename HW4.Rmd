@@ -84,3 +84,4 @@ table5 <- table4 %>%
 table5
 ```
 
+## Problem 3
