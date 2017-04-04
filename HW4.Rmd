@@ -33,7 +33,7 @@ db %>%
 
 
 ## problem 1
-Compute the number of all films for each production_year. Your result should be a data.frame with two columns: production_year and num_films. something
+Compute the number of all films for each production_year. Your result should be a data.frame with two columns: production_year and num_films.
 ```{r}
 db %>%
   dbGetQuery("SELECT * FROM title
@@ -45,7 +45,6 @@ db %>%
 table <- db %>%
   dbGetQuery("SELECT * FROM title
              WHERE kind_id = 1;")
-
 ```
 
 ```{r}
@@ -56,16 +55,12 @@ table %>%
 
 ## Problem 2
 Compute the number of Westerns for each production_year. Your result should be a  data.frame with two columns: production_year and num_westerns.
-```{r}
-table2 <- db %>%
-  dbGetQuery("SELECT * FROM movie_info
-             WHERE info_type_id = 3
-             AND info = 'Western';")
-```
 
 ```{r}
-table3 <- db %>%
-  dbGetQuery("SELECT * FROM title;")
+  db%>%
+dbGetQuery("SELECT * FROM movie_info
+             WHERE info_type_id = 3
+             AND info = 'western';")
 ```
 
 ```{r}
