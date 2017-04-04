@@ -41,3 +41,10 @@ table %>%
   summarise(num_films = sum(n()))
 ```
 
+## Problem 2
+Compute the number of Westerns for each production_year. Your result should be a  data.frame with two columns: production_year and num_westerns.
+```{r}
+
+```
+
+
