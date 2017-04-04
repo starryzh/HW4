@@ -28,22 +28,3 @@ db %>%
              AND production_year = 1992;")
 ```
 
-```{r}
-n2 <- 
-  db%>%
-  dbGetQuery("SELECT * 
-             FROM title
-             WHERE production_year = 1992;")
-nrow(n2)
-```
-Compute the number of all films for each production_year. Your result should be a data.frame with two columns: production_year and num_films
-
-```{r}
-number_of_films <- function (name_arg="1992")
-  db %>%
-  dbGetQuery("SELECT * 
-             FROM title
-             WHERE production_year = name_arg;") %>%
-nrow(name_arg)
-number_of_films(name_arg="2000")
-```
