@@ -63,4 +63,20 @@ dbGetQuery("SELECT * FROM movie_info
              AND info = 'western';")
 ```
 
+```{r}
+table4 <- table2 %>%
+  left_join(table3, by = c("movie_id" = "id"))
+head(table4)
+```
 
+```{r}
+table5 <- table4 %>%
+  group_by(production_year) %>%
+  summarise(num_westerns = sum(n()))
+```
+
+```{r}
+table5
+```
+
+## Problem 3
