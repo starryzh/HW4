@@ -49,7 +49,7 @@ table <- db %>%
 ```
 
 ```{r}
-table %>%
+problem1 <-table %>%
   group_by(production_year) %>%
   summarise(num_films = sum(n()))
 ```
@@ -75,7 +75,7 @@ head(table4)
 ```
 
 ```{r}
-table5 <- table4 %>%
+problem2 <- table4 %>%
   group_by(production_year) %>%
   summarise(num_westerns = sum(n()))
 ```
@@ -85,3 +85,4 @@ table5
 ```
 
 ## Problem 3
+
