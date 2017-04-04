@@ -63,4 +63,9 @@ table2 <- db %>%
              AND info = 'Western';")
 ```
 
+```{r}
+table3 <- db %>%
+  dbGetQuery("SELECT * FROM title;")
+```
+
 
