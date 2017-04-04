@@ -55,23 +55,9 @@ table %>%
 
 ## Problem 2
 Compute the number of Westerns for each production_year. Your result should be a  data.frame with two columns: production_year and num_westerns.
+
 ```{r}
-table2 <- db %>%
-<<<<<<< HEAD
-  dbGetQuery("SELECT * FROM title
-             WHERE kind_id = 1
-             AND 
-             info = Western;")
-```
-```{r}
-table2 %>%
-  group_by(production_year) %>%
-  summarise(num_films = sum(n()))
-=======
-  dbGetQuery("SELECT * FROM movie_info
+dbGetQuery("SELECT * FROM title
              WHERE info_type_id = 3
              AND info = 'Western';")
->>>>>>> ca6d7d6762347960ef987b2148d82b892bc3adca
 ```
-
-
