@@ -1,0 +1,87 @@
+---
+title: "HW4"
+author: "Fiona Miller, Starry Zhou"
+date: "April 4, 2017"
+output: html_document
+---
+```{r, message=FALSE, warning=FALSE}
+library(mdsr)
+library(RMySQL)
+db <- dbConnect_scidb(dbname = "imdb")
+```
+
+```{r, include=FALSE}
+class(db)
+```
+
+```{r}
+db %>%
+  dbGetQuery("SELECT * FROM kind_type;")
+```
+
+```{r}
+db %>%
+  dbGetQuery("SELECT * FROM info_type;")
+```
+
+```{r}
+db %>%
+  dbGetQuery("SELECT * FROM movie_info
+             WHERE info_type_id = 3
+             AND info = 'Western';")
+```
+
+
+## problem 1
+Compute the number of all films for each production_year. Your result should be a data.frame with two columns: production_year and num_films. something
+```{r}
+db %>%
+  dbGetQuery("SELECT * FROM title
+             WHERE title = 'Unforgiven'
+             AND production_year = 1992;")
+```
+
+```{r}
+table <- db %>%
+  dbGetQuery("SELECT * FROM title
+             WHERE kind_id = 1;")
+
+```
+
+```{r}
+table %>%
+  group_by(production_year) %>%
+  summarise(num_films = sum(n()))
+```
+
+## Problem 2
+Compute the number of Westerns for each production_year. Your result should be a  data.frame with two columns: production_year and num_westerns.
+```{r}
+table2 <- db %>%
+  dbGetQuery("SELECT * FROM movie_info
+             WHERE info_type_id = 3
+             AND info = 'Western';")
+```
+
+```{r}
+table3 <- db %>%
+  dbGetQuery("SELECT * FROM title;")
+```
+
+```{r}
+table4 <- table2 %>%
+  left_join(table3, by = c("movie_id" = "id"))
+head(table4)
+```
+
+```{r}
+table5 <- table4 %>%
+  group_by(production_year) %>%
+  summarise(num_westerns = sum(n()))
+```
+
+```{r}
+table5
+```
+
+## Problem 3
