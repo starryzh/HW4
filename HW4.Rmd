@@ -1,36 +1,6 @@
-<<<<<<< HEAD
 ---
 title: "HW4"
 author: "Fiona Miller, Starry Zhou"
-date: "April 4, 2017"
-output: html_document
----
-```{r}
-library(mdsr)
-library(RMySQL)
-db <- dbConnect_scidb(dbname = "imdb")
-```
-
-```{r}
-class(db)
-```
-
-```{r}
-db %>%
-  dbGetQuery("SELECT * FROM kind_type;")
-```
-
-## problem 1
-Compute the number of all films for each production_year. Your result should be a data.frame with two columns: production_year and num_films.
-```{r}
-db %>%
-  dbGetQuery("SELECT * movie
-FROM production_year=2000")
-```
-=======
----
-title: "HW4"
-author: "Fiona Miller"
 date: "April 4, 2017"
 output: html_document
 ---
@@ -44,4 +14,15 @@ db <- dbConnect_scidb(dbname = "imdb")
 class(db)
 ```
 
->>>>>>> d0e098151f02a9a47bc64ff2876fc7e8851cc86b
+```{r}
+db %>%
+  dbGetQuery("SELECT * FROM kind_type;")
+```
+
+## problem 1
+Compute the number of all films for each production_year. Your result should be a data.frame with two columns: production_year and num_films. something
+```{r}
+db %>%
+  dbGetQuery("SELECT * movie
+FROM production_year=2000")
+```
