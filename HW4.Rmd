@@ -27,8 +27,8 @@ db %>%
 ```{r}
 db %>%
   dbGetQuery("SELECT * FROM movie_info
-             WHERE movie_id = 4081418
-             AND info_type_id = 3;")
+             WHERE info_type_id = 3
+             AND info = 'Western';")
 ```
 
 
@@ -58,9 +58,9 @@ table %>%
 Compute the number of Westerns for each production_year. Your result should be a  data.frame with two columns: production_year and num_westerns.
 ```{r}
 table2 <- db %>%
-  dbGetQuery("SELECT * FROM title
-             WHERE kind_id = 1
-             AND info_type = 3;")
+  dbGetQuery("SELECT * FROM movie_info
+             WHERE info_type_id = 3
+             AND info = 'Western';")
 ```
 
 
