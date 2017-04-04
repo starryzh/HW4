@@ -57,7 +57,10 @@ table %>%
 Compute the number of Westerns for each production_year. Your result should be a  data.frame with two columns: production_year and num_westerns.
 
 ```{r}
-dbGetQuery("SELECT * FROM title
+  db%>%
+dbGetQuery("SELECT * FROM movie_info
              WHERE info_type_id = 3
-             AND info = 'Western';")
+             AND info = 'western';")
 ```
+
+
