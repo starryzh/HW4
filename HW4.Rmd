@@ -23,6 +23,7 @@ db %>%
 Compute the number of all films for each production_year. Your result should be a data.frame with two columns: production_year and num_films. something
 ```{r}
 db %>%
-  dbGetQuery("SELECT * movie
-FROM production_year=2000")
+  dbGetQuery("SELECT * FROM title
+             WHERE title = 'Unforgiven'
+             AND production_year = 1992;")
 ```
