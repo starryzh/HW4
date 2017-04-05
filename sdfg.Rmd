@@ -34,12 +34,6 @@ db %>%
 
 ## Problem 1
 Compute the number of all films for each production_year. Your result should be a data.frame with two columns: production_year and num_films. something
-```{r, results='hide'}
-db %>%
-  dbGetQuery("SELECT * FROM title
-             WHERE title = 'Unforgiven'
-             AND production_year = 1992;")
-```
 
 ```{r, results='hide'}
 table <- db %>%
@@ -48,13 +42,13 @@ table <- db %>%
 
 ```
 
-```{r}
+```{r,results='hide'}
 problem1 <-table %>%
   group_by(production_year) %>%
   summarise(num_films = sum(n()))
 ```
 
-```{r}
+```{r,results='hide'}
 problem1
 ```
 
@@ -80,35 +74,44 @@ table4 <- table2 %>%
 head(table4)
 ```
 
-```{r}
+```{r,results='hide'}
 problem2 <- table4 %>%
   group_by(production_year) %>%
   summarise(num_westerns = sum(n()))
 ```
 
-```{r}
+```{r,results='hide'}
 problem2
 ```
 
 ## Problem 3
 Join the results from the previous two questions on production_year (using dplyr – not SQL). Compute the percentage of movies in each year that are Westerns.
 
-```{r}
+```{r,results='hide'}
 table5 <- problem1 %>%
   right_join(problem2, by = "production_year")
 ```
 
-```{r}
+```{r,results='hide'}
 Problem3 <- table5%>%
   mutate(percentage=num_westerns/num_films*100)
 problem3
 ```
 
+
 ## Problem 4
 Plot the percentage of films that are Westerns as a time series. Annotate your plot with the year in which Unforgiven was made. Do you find any evidence to suggest that Unforgiven revived the Western?
-```{r}
-p1 <- ggplot(problem3, aes(x=production_year,y=percentage))+
-geom_line(aes(fill = percentage))
-p1
+
+```{r,results='hide'}
+problem3%>%
+  filter(production_year=="1992")
+```
+
+```{r,results='hide'}
+problem4 <- ggplot(problem3, aes(x=production_year,y=percentage))+
+geom_line(aes(fill = percentage))+
+geom_point(aes(x=1992,y=0.2479632), size = 3, color = "red")+
+annotate("text",x=1992,y=1,label="The year in which Unforgiven was made", size=3)
+problem4
 ```
 
