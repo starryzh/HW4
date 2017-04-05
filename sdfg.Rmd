@@ -70,7 +70,8 @@ table2 <- db %>%
 
 ```{r, results='hide'}
 table3 <- db %>%
-  dbGetQuery("SELECT * FROM title;")
+  dbGetQuery("SELECT * FROM title
+             WHERE kind_id = 1;")
 ```
 
 ```{r, results='hide'}
