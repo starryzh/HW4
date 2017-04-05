@@ -98,6 +98,7 @@ table5 <- problem1 %>%
 problem3 <- table5%>%
   mutate(percentage=num_westerns/num_films*100)
 ```
+
 ```{r}
 problem3
 ```
