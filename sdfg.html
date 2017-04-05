@@ -169,8 +169,22 @@ head(table4)</code></pre>
 <pre class="r"><code>table5 &lt;- problem1 %&gt;%
   right_join(problem2, by = &quot;production_year&quot;)</code></pre>
 <pre class="r"><code>problem3 &lt;- table5%&gt;%
-  mutate(percentage=num_westerns/num_films*100)
-problem3</code></pre>
+  mutate(percentage=num_westerns/num_films*100)</code></pre>
+<pre class="r"><code>problem3</code></pre>
+<pre><code>## # A tibble: 122 × 4
+##    production_year num_films num_westerns percentage
+##              &lt;int&gt;     &lt;int&gt;        &lt;int&gt;      &lt;dbl&gt;
+## 1             1894        94            1 1.06382979
+## 2             1899      1792            4 0.22321429
+## 3             1901      1752            1 0.05707763
+## 4             1903      2662            8 0.30052592
+## 5             1904      1828            4 0.21881838
+## 6             1905      1703            3 0.17615972
+## 7             1906      1855            8 0.43126685
+## 8             1907      2478           20 0.80710250
+## 9             1908      4272           49 1.14700375
+## 10            1909      5415          107 1.97599261
+## # ... with 112 more rows</code></pre>
 </div>
 <div id="problem-4" class="section level2">
 <h2>Problem 4</h2>

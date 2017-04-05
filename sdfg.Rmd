@@ -50,7 +50,7 @@ problem1 <-table %>%
   summarise(num_films = sum(n()))
 ```
 
-```{r,results='hide'}
+```{r}
 problem1
 ```
 
@@ -82,7 +82,7 @@ problem2 <- table4 %>%
   summarise(num_westerns = sum(n()))
 ```
 
-```{r,results='hide'}
+```{r}
 problem2
 ```
 
@@ -113,10 +113,13 @@ problem3%>%
   filter(production_year=="1992")
 ```
 
-```{r,results='hide'}
+```{r,results='hide', warning=FALSE}
 problem4 <- ggplot(problem3, aes(x=production_year,y=percentage))+
 geom_line(aes(fill = percentage))+
 geom_point(aes(x=1992,y=0.2479632), size = 3, color = "red")+
 annotate("text",x=1992,y=1,label="The year in which Unforgiven was made", size=3)
+```
+
+```{r, warning=FALSE}
 problem4
 ```
