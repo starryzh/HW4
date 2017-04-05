@@ -106,5 +106,5 @@ table7
 
 
 
-##Problem 4
+## Problem 4
 Plot the percentage of films that are Westerns as a time series. Annotate your plot with the year in which Unforgiven was made. Do you find any evidence to suggest that Unforgiven revived the Western?
