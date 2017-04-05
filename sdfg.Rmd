@@ -99,7 +99,6 @@ table5 <- problem1 %>%
 ```
 
 ```{r}
-problem3<-table6%>%
 Problem3 <- table5%>%
   mutate(percentage=num_westerns/num_films*100)
 problem3
