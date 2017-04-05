@@ -99,12 +99,16 @@ table6 <- problem1 %>%
 ```
 
 ```{r}
-table7<-table6%>%
+problem3<-table6%>%
   mutate(percentage=num_westerns/num_films*100)
-table7
+problem3
 ```
-
-
 
 ##Problem 4
 Plot the percentage of films that are Westerns as a time series. Annotate your plot with the year in which Unforgiven was made. Do you find any evidence to suggest that Unforgiven revived the Western?
+```{r}
+p1 <- ggplot(problem3, aes(x=production_year,y=percentage))+
+geom_line(aes(fill = percentage))
+p1
+```
+
