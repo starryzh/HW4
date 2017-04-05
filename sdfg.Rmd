@@ -3,8 +3,8 @@ title: "HW4"
 author: "Fiona Miller, Starry Zhou"
 date: "April 4, 2017"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 ```{r, message=FALSE, warning=FALSE}
 library(mdsr)
@@ -95,7 +95,7 @@ table5 <- problem1 %>%
 ```
 
 ```{r,results='hide'}
-Problem3 <- table5%>%
+problem3 <- table5%>%
   mutate(percentage=num_westerns/num_films*100)
 problem3
 ```
@@ -116,4 +116,3 @@ geom_point(aes(x=1992,y=0.2479632), size = 3, color = "red")+
 annotate("text",x=1992,y=1,label="The year in which Unforgiven was made", size=3)
 problem4
 ```
-
