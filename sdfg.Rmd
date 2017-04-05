@@ -94,7 +94,7 @@ problem2
 Join the results from the previous two questions on production_year (using dplyr – not SQL). Compute the percentage of movies in each year that are Westerns.
 
 ```{r}
-taable5 <- problem1 %>%
+table5 <- problem1 %>%
   right_join(problem2, by = "production_year")
 ```
 
