@@ -12,27 +12,6 @@ library(RMySQL)
 db <- dbConnect_scidb(dbname = "imdb")
 ```
 
-```{r, include=FALSE}
-class(db)
-```
-
-```{r, results='hide'}
-db %>%
-  dbGetQuery("SELECT * FROM kind_type;")
-```
-
-```{r, results='hide'}
-db %>%
-  dbGetQuery("SELECT * FROM info_type;")
-```
-
-```{r, results='hide'}
-db %>%
-  dbGetQuery("SELECT * FROM movie_info
-             WHERE info_type_id = 3
-             AND info = 'Western';")
-```
-
 
 ## Problem 1
 Compute the number of all films for each production_year. Your result should be a data.frame with two columns: production_year and num_films. something
